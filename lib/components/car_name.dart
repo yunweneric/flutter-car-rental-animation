@@ -12,7 +12,7 @@ class CarName extends StatefulWidget {
 }
 
 class _CarNameState extends State<CarName> {
-  List<Car> car_names = [
+  List<Car> carNames = [
     Car("FORD", "MUSTANG"),
     Car("AUDI", "A3"),
     Car("LEXUS", "LC SERIES"),
@@ -23,7 +23,7 @@ class _CarNameState extends State<CarName> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          car_names[widget.index].title,
+          carNames[widget.index].title,
           style: GoogleFonts.poppins(
             fontSize: 50,
             fontWeight: FontWeight.bold,
@@ -31,9 +31,9 @@ class _CarNameState extends State<CarName> {
           ),
         ),
         Transform.translate(
-          offset: Offset(0, -40),
+          offset: const Offset(0, -40),
           child: Text(
-            car_names[widget.index].sub_title,
+            carNames[widget.index].subTitle,
             style: GoogleFonts.poppins(
               fontSize: 200,
               fontWeight: FontWeight.bold,
@@ -49,7 +49,7 @@ class _CarNameState extends State<CarName> {
 
 class Car {
   final String title;
-  final String sub_title;
+  final String subTitle;
 
-  Car(this.title, this.sub_title);
+  Car(this.title, this.subTitle);
 }

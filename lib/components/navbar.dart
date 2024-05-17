@@ -28,10 +28,10 @@ class NavBar extends StatelessWidget {
             children: [
               ...navItems.map((item) {
                 return Container(
-                  margin: EdgeInsets.symmetric(horizontal: 15),
+                  margin: const EdgeInsets.symmetric(horizontal: 15),
                   child: TextButton(
                     onPressed: () {},
-                    child: Text(item, style: TextStyle(color: AppColors.black, fontSize: 16)),
+                    child: Text(item, style: const TextStyle(color: AppColors.black, fontSize: 16)),
                   ),
                 );
               })
@@ -49,8 +49,8 @@ class NavBar extends StatelessWidget {
             child: Row(
               children: [
                 Image.asset("assets/images/profile.png", width: 40, height: 40),
-                SizedBox(width: 5),
-                Text("MY ACCOUNT", style: TextStyle(color: AppColors.black)),
+                const SizedBox(width: 5),
+                const Text("MY ACCOUNT", style: TextStyle(color: AppColors.black)),
               ],
             ),
           ),

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_car_rental/utils/colors.dart';
 import 'package:flutter_car_rental/utils/helper.dart';
-import 'package:flutter_car_rental/utils/sizing.dart';
 import 'package:flutter_svg/svg.dart';
 
 class Link {
@@ -23,28 +22,12 @@ class Follow extends StatelessWidget {
     Link(2, "linkedIn", "https://www.linkedin.com/in/yunweneric", "LinkedIn"),
   ];
 
-  Color generateColor(int activeIndex, int index) {
-    if (activeIndex == index) {
-      switch (activeIndex) {
-        case 0:
-          return AppColors.blue;
-        case 1:
-          return AppColors.red;
-        case 2:
-          return AppColors.yellow;
-        default:
-          return Colors.transparent;
-      }
-    }
-    return Colors.transparent;
-  }
-
   linkItem(Link link, BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: 5),
+      margin: const EdgeInsets.only(bottom: 5),
       child: TextButton.icon(
         style: TextButton.styleFrom(
-          fixedSize: Size(120, 35),
+          fixedSize: const Size(120, 35),
           alignment: Alignment.centerLeft,
           backgroundColor: AppColors.white,
           shape: RoundedRectangleBorder(
@@ -52,7 +35,7 @@ class Follow extends StatelessWidget {
           ),
         ),
         onPressed: () => Helper.navigate(link.url),
-        label: Text(link.title, style: TextStyle(color: AppColors.black)),
+        label: Text(link.title, style: const TextStyle(color: AppColors.black)),
         icon: SvgPicture.asset("assets/icons/${link.icon}.svg"),
       ),
     );

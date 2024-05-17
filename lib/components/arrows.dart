@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_car_rental/utils/colors.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -25,9 +23,9 @@ class _ArrowsState extends State<Arrows> {
           bottom: 0,
           child: hoverAnimated(
             child: AnimatedOpacity(
-              child: arrow(widget.index, "assets/icons/arrow_left.svg", true),
-              duration: Duration(milliseconds: 200),
+              duration: const Duration(milliseconds: 200),
               opacity: widget.index > 0 ? 1 : 0,
+              child: arrow(widget.index, "assets/icons/arrow_left.svg", true),
             ),
           ),
         ),
@@ -37,9 +35,9 @@ class _ArrowsState extends State<Arrows> {
           bottom: 0,
           child: hoverAnimated(
             child: AnimatedOpacity(
-              child: arrow(widget.index, "assets/icons/arrow_right.svg", false),
-              duration: Duration(milliseconds: 200),
+              duration: const Duration(milliseconds: 200),
               opacity: widget.index == 2 ? 0 : 1,
+              child: arrow(widget.index, "assets/icons/arrow_right.svg", false),
             ),
           ),
         ),
@@ -58,8 +56,8 @@ class _ArrowsState extends State<Arrows> {
       child: Center(
         child: AnimatedScale(
           scale: isHovered ? 1.2 : 1,
+          duration: const Duration(milliseconds: 200),
           child: child,
-          duration: Duration(milliseconds: 200),
         ),
       ),
     );

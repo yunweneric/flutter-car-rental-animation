@@ -1,6 +1,4 @@
 import 'dart:async';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_car_rental/components/arrows.dart';
 import 'package:flutter_car_rental/components/car_component.dart';
@@ -27,7 +25,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 1), () => triggerAnimation(1));
+    Timer(const Duration(seconds: 1), () => triggerAnimation(1));
   }
 
   triggerAnimation(int newIndex) {
@@ -82,33 +80,33 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
             children: [
               ElevatedButton(
                 onPressed: () {},
-                child: Text("Rent Now", style: TextStyle(color: AppColors.white)),
                 style: ElevatedButton.styleFrom(
                   elevation: 0,
-                  padding: EdgeInsets.symmetric(horizontal: 40, vertical: 20),
-                  backgroundColor: AppColors.gray,
+                  padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
+                  backgroundColor: AppColors.darkBlue,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(5),
                   ),
                 ),
+                child: const Text("Rent Now", style: TextStyle(color: AppColors.white)),
               ),
-              SizedBox(width: 10),
+              const SizedBox(width: 10),
               ElevatedButton(
                 onPressed: () {},
-                child: Text("Details"),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppColors.bg,
-                  padding: EdgeInsets.symmetric(horizontal: 40, vertical: 20),
+                  padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
                   elevation: 0,
-                  side: BorderSide(color: AppColors.gray),
+                  side: const BorderSide(color: AppColors.darkBlue),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(5),
                   ),
                 ),
+                child: const Text("Details"),
               ),
             ],
           ),
-          SizedBox(height: 40),
+          const SizedBox(height: 40),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -121,7 +119,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
                       duration: duration,
                       height: 15,
                       width: 15,
-                      margin: EdgeInsets.symmetric(horizontal: 5),
+                      margin: const EdgeInsets.symmetric(horizontal: 5),
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         color: car == activeIndex ? AppColors.gray : AppColors.white,
@@ -144,7 +142,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
         controller: scrollController,
         onPageChanged: (page) => activeIndex = page,
         scrollDirection: Axis.horizontal,
-        physics: NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         itemCount: cars.length,
         itemBuilder: (context, i) {
           return CarComponent(index: i);
