@@ -1,10 +1,15 @@
-# flutter_car_rental
+### Getting Started
 
-A new Flutter project.
+An amazing UI Design from figma community. Done with Flutter
 
-## Getting Started
+```bash
+flutter pub get
+flutter run
+```
 
-This project is a starting point for a Flutter application.
+- [Figma File ](<https://www.figma.com/design/Zwd79BDhZLub76X9pI1l2T/Car-Rental-Website-Animation-(Community)?m=auto&t=hHBxtNaDzD3pcYA9-6>)
+
+- [Demo Link](https://flutter-car-rental.netlify.app/)
 
 A few resources to get you started if this is your first Flutter project:
 
@@ -14,3 +19,5 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+<img src="https://github.com/yunweneric/flutter-car-rental-animation/blob/main/animation.gif?raw=true"/>
