@@ -40,10 +40,21 @@ class Follow extends StatelessWidget {
   }
 
   linkItem(Link link, BuildContext context) {
-    return TextButton.icon(
-      onPressed: () => Helper.navigate(link.url),
-      label: Text(link.title, style: TextStyle(color: AppColors.black)),
-      icon: SvgPicture.asset("assets/icons/${link.icon}.svg"),
+    return Container(
+      margin: EdgeInsets.only(bottom: 5),
+      child: TextButton.icon(
+        style: TextButton.styleFrom(
+          fixedSize: Size(120, 35),
+          alignment: Alignment.centerLeft,
+          backgroundColor: AppColors.white,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(5),
+          ),
+        ),
+        onPressed: () => Helper.navigate(link.url),
+        label: Text(link.title, style: TextStyle(color: AppColors.black)),
+        icon: SvgPicture.asset("assets/icons/${link.icon}.svg"),
+      ),
     );
   }
 
@@ -51,35 +62,11 @@ class Follow extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Container(
-            width: Sizing.width(context) / 4,
-            padding: EdgeInsets.all(5),
-            decoration: BoxDecoration(
-              color: AppColors.white,
-              borderRadius: BorderRadius.circular(5),
-            ),
-            child: Center(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  ...links.map((link) {
-                    return linkItem(link, context);
-                  })
-                ],
-              ),
-            ),
-          ),
-          SizedBox(height: 5),
-          Container(
-            width: Sizing.width(context) / 4,
-            padding: EdgeInsets.all(5),
-            decoration: BoxDecoration(
-              color: AppColors.white,
-              borderRadius: BorderRadius.circular(5),
-            ),
-            child: Center(child: Text("Coded by Yunwen", style: TextStyle(fontSize: 12))),
-          ),
+          ...links.map((link) {
+            return linkItem(link, context);
+          })
         ],
       ),
     );

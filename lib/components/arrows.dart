@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_car_rental/utils/colors.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -12,14 +14,54 @@ class Arrows extends StatefulWidget {
 }
 
 class _ArrowsState extends State<Arrows> {
+  bool isHovered = false;
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    return Stack(
       children: [
-        arrow(widget.index, "assets/icons/arrow_left.svg", true),
-        arrow(widget.index, "assets/icons/arrow_right.svg", false),
+        Positioned(
+          left: 30,
+          top: 0,
+          bottom: 0,
+          child: hoverAnimated(
+            child: AnimatedOpacity(
+              child: arrow(widget.index, "assets/icons/arrow_left.svg", true),
+              duration: Duration(milliseconds: 200),
+              opacity: widget.index > 0 ? 1 : 0,
+            ),
+          ),
+        ),
+        Positioned(
+          right: 30,
+          top: 0,
+          bottom: 0,
+          child: hoverAnimated(
+            child: AnimatedOpacity(
+              child: arrow(widget.index, "assets/icons/arrow_right.svg", false),
+              duration: Duration(milliseconds: 200),
+              opacity: widget.index == 2 ? 0 : 1,
+            ),
+          ),
+        ),
       ],
+    );
+  }
+
+  Widget hoverAnimated({required Widget child}) {
+    return MouseRegion(
+      onEnter: (_) {
+        setState(() => isHovered = true);
+      },
+      onExit: (_) {
+        setState(() => isHovered = false);
+      },
+      child: Center(
+        child: AnimatedScale(
+          scale: isHovered ? 1.2 : 1,
+          child: child,
+          duration: Duration(milliseconds: 200),
+        ),
+      ),
     );
   }
 

@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_car_rental/utils/colors.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -12,7 +13,7 @@ class CarName extends StatefulWidget {
 
 class _CarNameState extends State<CarName> {
   List<Car> car_names = [
-    Car("FORD", "MUSTANKG"),
+    Car("FORD", "MUSTANG"),
     Car("AUDI", "A3"),
     Car("LEXUS", "LC SERIES"),
   ];
@@ -29,12 +30,16 @@ class _CarNameState extends State<CarName> {
             color: AppColors.gray.withOpacity(0.74),
           ),
         ),
-        Text(
-          car_names[widget.index].sub_title,
-          style: GoogleFonts.poppins(
-            fontSize: 200,
-            fontWeight: FontWeight.bold,
-            color: AppColors.gray.withOpacity(0.74),
+        Transform.translate(
+          offset: Offset(0, -40),
+          child: Text(
+            car_names[widget.index].sub_title,
+            style: GoogleFonts.poppins(
+              fontSize: 200,
+              fontWeight: FontWeight.bold,
+              height: 0,
+              color: AppColors.gray.withOpacity(0.74),
+            ),
           ),
         ),
       ],
